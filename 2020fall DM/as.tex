@@ -1,0 +1,62 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+
+\begin{document}
+
+2.10.1\\
+
+(1)\\
+
+$\overline{y} = \frac{\sum_{i=1}^{m}y{_0}i + \sum_{i=m+1}^{2m}y{_1}i}{2m}$
+
+$\overline{y}{_0} + \overline{y}{_1} = \frac{1}{m}\sum_{i=1}^{m}y{_0}i + \frac{1}{m}\sum_{i=m+1}^{2m}y{_1}i =  \frac{1}{m}({\sum_{i=1}^{m}y{_0}i + \sum_{i=m+1}^{2m}y{_1}i})$
+
+$\therefore \overline{y} = \frac{\overline{y}{_0}+\overline{y}{_1}}{2}$\\
+
+(2)\\
+
+$\overline{x} = \frac{\sum_{i=1}^{m}x{_i} + \sum_{i=m+1}^{2m}x{_i}}{2m} = \frac{0+1*m}{2m} = \frac{1}{2}$\\
+
+(3)\\
+
+SXX = $\sum_{i=1}^{2m}(x{_i}-\overline{x})x{_i} = \sum_{i=1}^{m}(x{_i}-\frac{1}{2})x{_i} + \sum_{i=m+1}^{2m}(x{_i}-\frac{1}{2})x{_i} = 0 + \frac{1}{2}m = \frac{m}{2}$\\
+
+(4)\\
+
+SXY = $\sum_{i=1}^{2m}(x{_i}-\overline{x})y{_i} = \sum_{i=1}^{m}(x{_i}-\frac{1}{2})y{_0}i + \sum_{i=m+1}^{2m}(x{_i}-\frac{1}{2})y{_1}i = \sum_{i=1}^{m}-\frac{1}{2}y{_0}i + \sum_{i=m+1}^{2m}\frac{1}{2}y{_1}i = -\frac{1}{2}\overline{y}{_0}m + \frac{1}{2}\overline{y}{_1}m = \frac{m(\overline{y}{_1}-\overline{y}{_0})}{2}$\\
+
+2.10.2\\
+
+$\hat{\beta}{_1} = \frac{SXY}{SXX} = \frac{\frac{m(\overline{y}{_1}-\overline{y}{_0})}{2}}{\frac{m}{2}} = \overline{y}{_1} - \overline{y}{_0}$\\
+
+$\hat{\beta}{_0} = \overline{y} - \hat{\beta}{_1}\overline{x} = \frac{\overline{y}{_0}+\overline{y}{_1}}{2} - (\overline{y}{_1} - \overline{y}{_0})\overline{x} = \overline{y}{_0}$\\
+
+OLS estimators minimize the residual sum of squares function, which least the inherent asymmetry in the
+roles of the response and the predictor in this problem.\\
+
+2.10.3\\
+
+For $x{_i} = 0$,where i = 1,$\cdots$,m, all fitted values = $\hat{\beta}{_0}+\hat{\beta}{_1}x{_i} = \overline{y}{_0} + (\overline{y}{_1} - \overline{y}{_0})x{_i} = \overline{y}{_0}.$ Residuals $= y{_i} - \overline{y}{_0},$where i $= 1,\cdots,m. $ \\
+
+For $x{_i} = 1$,where i = m+1,$\cdots$,2m, all fitted values = $\hat{\beta}{_0}+\hat{\beta}{_1}x{_i} = \overline{y}{_0} + (\overline{y}{_1} - \overline{y}{_0})x{_i} = \overline{y}{_1}$. Residuals $= y{_i} - \overline{y}{_1},$where i $= m+1,\cdots,2m. $\\
+
+RSS = $\sum_{i=1}^{2m} (y{_i} - \overline{y}{_0})^2 + \sum_{i=m+1}^{2m} (y{_i} - \overline{y}{_1})^2 = SYY{_0} + SYY{_1}$\\
+
+$\hat{\sigma}^2 = \frac{RSS}{m{_0}+m{_1}-2} = \frac{SYY{_0} + SYY{_1}}{m{_0}+m{_1}-2}$\\
+
+2.10.4\\
+
+t-statistic for test $\beta{_1}=0$: $\frac{\hat{\beta{_1}}}{\sigma\sqrt{\frac{1}{SXX}}} = \frac{\overline{y}{_1} - \overline{y}{_0}}{\sqrt{\frac{RSS}{m{_0}+m{_1}-2}}\sqrt{\frac{1}{SXX}}} = \frac{\overline{y}{_1} - \overline{y}{_0}}{\sqrt{\frac{RSS}{m{_0}+m{_1}-2}}\sqrt{\frac{2}{m}}} =\frac{\overline{y}{_1} - \overline{y}{_0}}{\sqrt{\frac{RSS}{m{_0}+m{_1}-2}}\sqrt{\frac{m{_0}+m{_1}}{m{_0}m{_1}}}} = \frac{\overline{y}{_1} - \overline{y}{_0}}{\hat{\sigma}\sqrt{ \frac{1}{m{_0}}+\frac{1}{m{_1}}} }$\\
+
+The usual two-sample t-test for comparing two groups with an assumption of equal within-group variance:$\frac{\overline{y}{_1} - \overline{y}{_0}}{\sqrt{\frac{(m{_0}-1)SD{_0}^2 + (m{_1}-1)SD{_1}^2}{m{_0}+m{_1}-2}}\sqrt{\frac{m{_0}+m{_1}}{m{_0}m{_1}}}} = \frac{\overline{y}{_1} - \overline{y}{_0}}{\sqrt{\frac{(m{_0}-1)SD{_0}^2 + (m{_1}-1)SD{_1}^2}{m{_0}+m{_1}-2}}\sqrt{\frac{2}{m}}}$\\
+
+$\because (m{_0}-1){\frac{SYY{_0}}{m{_0}-1}} + (m{_1}-1){\frac{SYY{_1}}{m{_1}-1}} = SYY{_0} + SYY{_1} = RSS$\\
+
+$\because$ they are the same.
+
+
+
+
+\end{document}
